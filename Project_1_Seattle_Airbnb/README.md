@@ -80,12 +80,12 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 	<br>
 	![trends log scale](visualizations/trends_log_scale.png "trends_log_scale")
 <br>
-* **The vibe of each Seattle neighborhood using listing dataset**: <br>
+- **The vibe of each Seattle neighborhood using listing dataset**: <br>
 	Based on the top five positive adjectives, most neighborhood groups shared similar vibes such as "great", "many", and "easy". Some of the neighborhood groups also have special vibes, such as "amazing" for Ballard, "safe" for Interbay and Lake city, and "peaceful" for Magnolia.
 	<br>
 	![neighborhood vibes](visualizations/neighborhood_vibes.png "neighborhood_vibes")
 <br>
-* **Visitors feelings about the listed property in each Seattle neighborhood**:<br>
+- **Visitors feelings about the listed property in each Seattle neighborhood**:<br>
 	There are common positive feelings ("great", "comfortable", "clean", "nice", etc.) and negative feelings ("small", "late", "cold", "hard", etc.) on listed rental properties in each neighborhood.
 	<br>
 	![neighborhood listing feelings](visualizations/neighborhood_listing_feelings.png "neighborhood_listing_feelings")
