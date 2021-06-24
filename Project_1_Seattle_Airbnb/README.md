@@ -87,3 +87,9 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 	There are common positive feelings ("great", "comfortable", "clean", "nice", etc.) and negative feelings ("small", "late", "cold", "hard", etc.) on listed rental properties in each neighborhood.
 	<br>
 	![neighborhood listing feelings](visualizations/neighborhood_listing_feelings.png "neighborhood_listing_feelings")
+  <br>
+  
+### Acknowledgements
+1. Datasets are downloaded from https://www.kaggle.com/airbnb/seattle
+2. https://textblob.readthedocs.io/en/dev/
+3. Graphing ideas inspired by https://medium.com/swlh/where-to-stay-in-seattle-wa-32c6434b4198
