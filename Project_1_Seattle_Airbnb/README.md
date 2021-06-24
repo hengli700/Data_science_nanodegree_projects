@@ -69,7 +69,6 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 	![monthly visitor change from a month prior](visualizations/monthly_visitor_change_from_a_month_prior.png "monthly_visitor_change_from_a_month_prior")
 	<br>
 	![monthly visitor fluctuation around annual average](visualizations/monthly_visitor_fluctuation_around_annual_average.png "monthly_visitor_fluctuation_around_annual_average")
-<br>
 
 * **Average price spike across all listings in 2016 in Seattle area from normal to hot season is: 7.94%** <br>
 
@@ -79,12 +78,11 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 	![trends](visualizations/trends.png "trends")
 	<br>
 	![trends log scale](visualizations/trends_log_scale.png "trends_log_scale")
-<br>
+
 - **The vibe of each Seattle neighborhood using listing dataset**: <br>
-	Based on the top five positive adjectives, most neighborhood groups shared similar vibes such as "great", "many", and "easy". Some of the neighborhood groups also have special vibes, such as "amazing" for Ballard, "safe" for Interbay and Lake city, and "peaceful" for Magnolia.
-	<br>
+	Based on the top five positive adjectives, most neighborhood groups shared similar vibes such as "great", "many", and "easy". Some of the neighborhood groups also have special vibes, such as "amazing" for Ballard, "safe" for Interbay and Lake city, and "peaceful" for Magnolia.<br>
 	![neighborhood vibes](visualizations/neighborhood_vibes.png "neighborhood_vibes")
-<br>
+
 - **Visitors feelings about the listed property in each Seattle neighborhood**:<br>
 	There are common positive feelings ("great", "comfortable", "clean", "nice", etc.) and negative feelings ("small", "late", "cold", "hard", etc.) on listed rental properties in each neighborhood.
 	<br>
