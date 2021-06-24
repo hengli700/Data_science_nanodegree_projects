@@ -6,7 +6,7 @@ LinkedIn: www.linkedin.com/in/hengli700 <br>
 Medium: https://medium.com/@hengli700
 
 
-###1. Libraries used:
+### 1. Libraries used:
 ```numpy``` and ```pandas``` for computations and data imports/storage <br>
 ```matplotlib``` for data visualization <br>
 ```textblob``` and ```ntlk``` for natural language processing and sentiment analyses
@@ -30,7 +30,7 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 <br><br>
   Sentiment analysis was used on visitor review comments to extract what are the pros and cons on listed properties in each neighborhoods. This helps the rental property owners to identify room for improvement and enhance visitors' staying experience.
 <br><br>
-###3. Files in the repository:
+### 3. Files in the repository:
 ```
 └── Project_1_Seattle_Airbnb
 	├── Data_and_Sentiment_Analyses_on_Seattle_Airbnb_Open_Data.ipynb
@@ -60,7 +60,7 @@ In this Seattle Airbnb data set, data analyses and visualizations were used to a
 					# trends_log_scale
 ```
 
-###4. Summary of results and analyses
+### 4. Summary of results and analyses
 - **The busiest time to visit Seattle is**:<br>
   Busiest time (hot season) is from June all the way through October.<br>
 	<br>
