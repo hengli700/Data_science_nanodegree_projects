@@ -35,13 +35,16 @@ def clean_data(df):
     # drop duplicates
     df = df[~df.duplicated()]
 
+    # remove nan rows
+    df = df.dropna()
+
     return df
 
 
 def save_data(df, database_filename):
     # save the clean dataset into an sqlite database
     engine = create_engine(f'sqlite:///{database_filename}.db')
-    df.to_sql(database_filename, engine, index=False)
+    df.to_sql(database_filename, engine, if_exists='replace', index=False)
 
 
 def main():
