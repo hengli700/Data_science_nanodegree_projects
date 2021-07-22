@@ -30,13 +30,10 @@ def clean_data(df):
     df = df.drop('categories', axis=1)
 
     # concatenate the original dataframe with the new 'categories' dataframe
-    df = pd.concat([df, categories], axis=1)
+    df = pd.concat([df, categories], axis=1, join='inner')
 
     # drop duplicates
     df = df[~df.duplicated()]
-
-    # remove nan rows
-    df = df.dropna()
 
     return df
 

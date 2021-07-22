@@ -1,24 +1,81 @@
 import sys
+import nltk
+import re
+import pickle
+import pandas as pd
+import numpy as np
+from sqlalchemy import create_engine
+from nltk.tokenize import word_tokenize
+from nltk.stem import WordNetLemmatizer
+
+from sklearn.pipeline import Pipeline
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.multioutput import MultiOutputClassifier
+from sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+from sklearn.metrics import classification_report
+from sklearn.model_selection import GridSearchCV
 
 
 def load_data(database_filepath):
-    pass
+    # load data from database
+    engine = create_engine('sqlite:///'+database_filepath)
+    df = pd.read_sql_table('DisasterResponse', engine)
+
+    # extract message and category columns
+    X = df['message'].values
+    Y = df[df.columns[4:]].values
+    category_names = df.columns[4:]
+
+    return X, Y, category_names
 
 
 def tokenize(text):
-    pass
+    # replace any non alphanumeric character with space, and lowercase the text
+    text = re.sub(r"[^a-zA-Z0-9]", " ", text.lower())
+    tokens = word_tokenize(text)
+    lemmatizer = WordNetLemmatizer()
+
+    clean_tokens = []
+    for token in tokens:
+        clean_token = lemmatizer.lemmatize(token)
+        clean_tokens.append(clean_token)
+    return clean_tokens
 
 
 def build_model():
-    pass
+    pipeline = Pipeline([
+        ('vect', CountVectorizer(tokenizer=tokenize)),
+        ('tfidf', TfidfTransformer()),
+        ('clf', MultiOutputClassifier(RandomForestClassifier()))
+    ])
+
+    parameters = {
+            'vect__ngram_range': ((1, 1), (1, 2)),
+            # 'vect__max_df': (0.5, 1),
+            # 'vect__max_features': (None, 5000),
+            'tfidf__use_idf': (True, False),
+            'clf__estimator__n_estimators': (10, 50),
+            # 'clf__estimator__min_samples_split': (2, 4)
+        }
+
+    cv = GridSearchCV(pipeline, param_grid=parameters)
+
+    return cv
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
-    pass
+    Y_pred = model.predict(X_test)
+    for col_index in range(len(category_names)):
+        category = category_names[col_index]
+        print(f'-->[category= {category}]')
+        print(classification_report(Y_test[col_index], Y_pred[col_index]))
+        print()
 
 
 def save_model(model, model_filepath):
-    pass
+    pickle.dump(model, open(model_filepath, mode='wb'))
 
 
 def main():
@@ -33,6 +90,9 @@ def main():
         
         print('Training model...')
         model.fit(X_train, Y_train)
+
+        print('Best params for trained model...')
+        print(model.best_params_)
         
         print('Evaluating model...')
         evaluate_model(model, X_test, Y_test, category_names)
@@ -46,7 +106,7 @@ def main():
         print('Please provide the filepath of the disaster messages database '\
               'as the first argument and the filepath of the pickle file to '\
               'save the model to as the second argument. \n\nExample: python '\
-              'train_classifier.py ../data/DisasterResponse.db classifier.pkl')
+              'train_classifier.py ../data/DisasterResponse.db classifier.pkl.pkl')
 
 
 if __name__ == '__main__':
